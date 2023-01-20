@@ -7,6 +7,13 @@ const getAllOrders = async (): Promise<Orders[]> => {
   return result;
 };
 
+const createOrder = async (order: Orders) => {
+  const affectedRows = await modelOrders.createOrder(order);
+  if (affectedRows < 1) return { type: 'error', message: 'Cannot insert Orders' };
+  return { type: null, message: order };
+};
+
 export default {
   getAllOrders,
+  createOrder,
 };

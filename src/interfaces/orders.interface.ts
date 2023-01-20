@@ -1,5 +1,5 @@
 export type Orders = {
-  id: number;
-  productIds: number;
+  id?: number;
+  productsIds: number[];
   userId: number;
 };
