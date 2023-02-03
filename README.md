@@ -1,4 +1,4 @@
-# Medieval Store API
+# RPG Blacksmith store API
 
 ---
 
