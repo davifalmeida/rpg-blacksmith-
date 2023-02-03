@@ -1,65 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
 
-// class ValidationError extends Error {
-//   status: number;
-
-//   message: string;
-
-//   constructor(status: number, message: string) {
-//     super(message);
-//     this.status = status;
-//     this.message = message;
-//   }
-// }
-
-// const usernameValidation = async (req: Request, res: Response, next: NextFunction) => {
-//   const { username } = req.body;
-//   if (!username) return next(new ValidationError(400, '"username" is required'));
-//   if (username.length < 3) {
-//     return next(new ValidationError(422, '"username" length must be at least 3 characters long'));
-//   }
-//   if (typeof username !== 'string') {
-//     return next(new ValidationError(422, '"username" must be a string'));
-//   }
-//   next();
-// };
-
-// const vocationValidation = async (req: Request, res: Response, next: NextFunction) => {
-//   const { vocation } = req.body;
-//   if (!vocation) return next(new ValidationError(400, '"vocation" is required'));
-//   if (vocation.length < 3) {
-//     return next(new ValidationError(422, '"vocation" length must be at least 3 characters long'));
-//   }
-//   if (typeof vocation !== 'string') {
-//     return next(new ValidationError(422, '"vocation" must be a string'));
-//   }
-//   next();
-// };
-
-// const levelValidation = async (req: Request, res: Response, next: NextFunction) => {
-//   const { level } = req.body;
-//   if (!level) return next(new ValidationError(400, '"level" is required'));
-//   if (level.length < 3) {
-//     return next(new ValidationError(422, '"level" length must be at least 3 characters long'));
-//   }
-//   if (typeof level !== 'string') {
-//     return next(new ValidationError(422, '"level" must be a string'));
-//   }
-//   next();
-// };
-
-// const passwordValidation = async (req: Request, res: Response, next: NextFunction) => {
-//   const { password } = req.body;
-//   if (!password) return next(new ValidationError(400, '"password" is required'));
-//   if (password.length < 3) {
-//     return next(new ValidationError(422, '"password" length must be at least 3 characters long'));
-//   }
-//   if (typeof password !== 'string') {
-//     return next(new ValidationError(422, '"password" must be a string'));
-//   }
-//   next();
-// };
-
 export const usernameValidation = (req: Request, res: Response, next: NextFunction) => {
   const { username } = req.body;
   if (!username) return res.status(400).json({ message: '"username" is required' });
@@ -113,22 +53,3 @@ export const passwordValidation = (req: Request, res: Response, next: NextFuncti
   }
   next();
 };
-  
-// const validateUser = async (req: Request, res: Response, next: NextFunction) => {
-//   try {
-//     await usernameValidation(req, res, next);
-//     await vocationValidation(req, res, next);
-//     await levelValidation(req, res, next);
-//     await passwordValidation(req, res, next);
-//     next();
-//   } catch (error) {
-//     if (error instanceof ValidationError) {
-//       return res.status(error.status).json({ message: error.message });
-//     }
-//     next(error);
-//   }
-// };
-
-// export default {
-//   validateUser,
-// };
